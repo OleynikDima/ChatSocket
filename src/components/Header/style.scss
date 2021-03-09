@@ -1,0 +1,12 @@
+.header {
+    &-nav{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    };
+    &__img{};
+    &__list{};
+    &__item{
+        list-style: none;
+    };
+}
