@@ -1,26 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
+//action
+import actionUser from "./redux/action/user";
+//route
+import routes from "./route/route";
+import PrivateRoute from "./route/PrivateRout";
+import PublickRouter from "./route/PublickRoute";
 //components
-import FormChat from "./components/FormChat";
-import FormLogin from "./components/FormLogin";
 import Header from "./components/Header";
+
 //style
-import "./style/login.css";
-import "./style/center.css";
-function App() {
-  const [infoUser, setInfoUser] = useState();
+
+const App = ({ getUser }) => {
+  const [isUserAlredy, setIsUserAlredy] = useState(false);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    // getUser(id);
+  });
   return (
     <>
       <Header />
       <hr />
       <div className="login center-site">
-        <Switch>
-          <Route path="/" exact component={FormLogin} />
-          <Route path="/chat" exact component={FormChat} />
-        </Switch>
+        <Suspense fallback={<h1> </h1>}>
+          <Switch>
+            {routes.map((route) => {
+              return route.private ? (
+                <PrivateRoute key={route.label} {...route} />
+              ) : (
+                <PublickRouter
+                  key={route.label}
+                  {...route}
+                  restricted={route.restricted}
+                />
+              );
+            })}
+          </Switch>
+        </Suspense>
       </div>
     </>
   );
-}
+};
 
-export default App;
+const mapStateToProps = () => {};
+
+export default connect(mapStateToProps, null)(App);

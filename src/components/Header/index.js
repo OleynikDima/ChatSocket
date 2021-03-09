@@ -1,6 +1,8 @@
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "./style.scss";
-const Header = () => {
+const Header = ({ infoUserState }) => {
+  const info = { name: "Dima", lastName: "Oil" };
   return (
     <header className="header">
       <nav className="header-nav">
@@ -9,8 +11,8 @@ const Header = () => {
           <img alt="img" />
         </div>
         <ul className="header__list">
-          <li className="header__item">1. Name</li>
-          <li className="header__item">2. LastName</li>
+          <li className="header__item">1.Name {info.name}</li>
+          <li className="header__item">2.LastName: {info.lastName}</li>
           <NavLink to="/">Exit</NavLink>
         </ul>
       </nav>
@@ -18,4 +20,7 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  infoUserState: state.user.userInfo,
+});
+export default connect(mapStateToProps, null)(Header);

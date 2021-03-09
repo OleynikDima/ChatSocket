@@ -1,0 +1,17 @@
+.form_register_user {
+    margin:  0 auto;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    &__label {
+        display: flex;
+        justify-content: space-between;
+    };
+    &__input {
+        width: 200px;
+    };
+    &__button{
+        width: 150px;
+    }
+};

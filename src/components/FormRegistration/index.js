@@ -1,24 +1,27 @@
+import React from "react";
+import "./style.scss";
+
 const FormRegistration = () => {
   return (
-    <form>
+    <form className="form_register_user">
       <p> Registration </p>
-      <label>
+      <label className="form_register_user__label">
         Name
-        <input />
+        <input className="form_register_user__input" />
       </label>
-      <label>
+      <label className="form_register_user__label">
         LastName
-        <input />
+        <input className="form_register_user__input" />
       </label>
-      <label>
+      <label className="form_register_user__label">
         Email
-        <input />
+        <input className="form_register_user__input" />
       </label>
-      <label>
+      <label className="form_register_user__label">
         Password
-        <input />
+        <input className="form_register_user__input" />
       </label>
-      <button> Submit</button>
+      <button className="form_register_user__button"> Submit</button>
     </form>
   );
 };

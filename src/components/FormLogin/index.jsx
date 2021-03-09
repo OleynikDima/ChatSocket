@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
-import ModalWindow from '../Modal'
 //style
 import './style.scss'
 const FormLogin =()=>{
@@ -25,7 +25,7 @@ const FormLogin =()=>{
                 <input className="form-container__input" value={password}  onChange={(e)=>setPassword(e.target.value)} type="text" name="password" placeholder="password"/>
                 <button type="submit" className="form-container__button"> Login </button>
             </form>
-        <p> may be <a  href="">register</a> user</p>
+        <p> may be <NavLink  to='/register'>register</NavLink> user</p>
         </div>
         </>
     );
