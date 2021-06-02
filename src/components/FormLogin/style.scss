@@ -1,0 +1,45 @@
+.form-container {
+  position: relative;
+  top:200px;
+  margin: 0 auto ;
+  max-width: 400px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  box-shadow: 2px 0 12px -6px #fff;
+  overflow: hidden;
+  // &__label{
+
+  // };
+  // &__input{
+
+  // };
+  &__button {
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: skyblue;
+    height: 20px;
+    transition: linear 250ms;
+    cursor: pointer;
+    &:hover {
+      background-color: green;
+      color: white;
+    }
+  }
+  &__button--error {
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    background-color: red;
+    color: white;
+    transition: linear 250ms;
+    cursor: pointer;
+    &:hover {
+      background-color: green;
+      color: white;
+    }
+  }
+}

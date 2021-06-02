@@ -1,0 +1,22 @@
+.my-node-enter {
+    opacity: 0;
+    transform: translateX(-100%) scale(0.5);
+  
+  }
+.my-node-enter-active {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      transition: linear 300ms;
+  };
+
+  
+  
+.my-node-exit {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+.my-node-exit-active {
+    opacity: 0;
+    transform: translateX(-100%) scale(0.5);
+    transition: linear 300ms;
+  }
