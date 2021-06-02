@@ -1,35 +1,38 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import {useState} from 'react'
+import { connect } from 'react-redux';
+import authOperation from '../../redux/operation/authorization';
+import FormLog from './form'
+import { CSSTransition } from 'react-transition-group';
+import './node.trancition.css'
 
-//style
-import './style.scss'
-const FormLogin =()=>{
-    const [name, setName]= useState('');
-    const [password, setPassword] = useState('')
-    const handleSubmitFromServer = (e) =>{
-       e.preventDefault();
-       if(name.length === 0){
-           console.log('empty');
-       }
-            console.log('name: ',name);
-            console.log('pass: ',password);
-    }
-    return (
-        <>
-        {/* { <ModalWindow/>} */}
-          
-        <div>
-            <form className="form-container" onSubmit={handleSubmitFromServer} > 
-                <label className="form-container__label"> Login Chat</label>
-                <input className="form-container__input" value={name}  onChange={(e)=>setName(e.target.value)} type="text" name="" placeholder="login"/>
-                <input className="form-container__input" value={password}  onChange={(e)=>setPassword(e.target.value)} type="text" name="password" placeholder="password"/>
-                <button type="submit" className="form-container__button"> Login </button>
-            </form>
-        <p> may be <NavLink  to='/register'>register</NavLink> user</p>
-        </div>
-        </>
-    );
+const FormLogin = ({ onUserLogin }) => {
+  const [guestShowForm, setGuestShowForm] = useState(true)
+  const onFinish = values => {
+    const {name, password}= values;
+    onUserLogin({ name, password });
+  };
+
+  const handelToogleLog = ()=>{
+    setGuestShowForm(guestShowForm => guestShowForm = !guestShowForm )
+  }
+  const onFinishFailed = errorInfo => {
+    console.log('Failed:', errorInfo);
+  };
+  console.log('guestShowForm',guestShowForm);
+  return (
+    <div className="form-container ">
+      <CSSTransition in={guestShowForm} timeout={500} classNames="my-node" onExited={guestShowForm} >
+          <FormLog onFinish={onFinish} onFinishFailed={onFinishFailed} showGuest={handelToogleLog} guestShowForm={guestShowForm}/>
+      </CSSTransition>
+   </div>
+  )};
+
+const mapStateToProps = state => ({
+  isError: state.auth.error,
+});
+
+const mapDispatchToProps = {
+  onUserLogin: authOperation.logIn,
 };
 
-
-export default FormLogin;
+export default connect(mapStateToProps, mapDispatchToProps)(FormLogin);

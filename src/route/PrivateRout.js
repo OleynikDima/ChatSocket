@@ -1,21 +1,19 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Route, Redirect } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Route, Redirect } from 'react-router-dom';
 
 const PrivateRoute = ({ component: Component, isAuthUser, ...routeProps }) => {
-  console.log("routeProps", routeProps);
-  console.log("isAuthUser", isAuthUser);
   return (
     <Route
       {...routeProps}
-      render={(props) =>
-        isAuthUser ? <Component {...props} /> : <Redirect to="/chat" />
+      render={props =>
+        isAuthUser ? <Component {...props} /> : <Redirect to="/" />
       }
     />
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   isAuthUser: state.auth.token,
 });
 

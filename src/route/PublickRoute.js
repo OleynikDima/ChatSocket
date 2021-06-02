@@ -1,6 +1,6 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Route, Redirect } from "react-router-dom";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Route, Redirect } from 'react-router-dom';
 
 const PublickRoute = ({
   component: Component,
@@ -8,14 +8,12 @@ const PublickRoute = ({
   restricted,
   ...routeProps
 }) => {
-  console.log("routeProps", routeProps);
-  console.log("isAuthUser", isAuthUser);
   return (
     <Route
       {...routeProps}
-      render={(props) =>
+      render={props =>
         isAuthUser && restricted ? (
-          <Redirect to="/" />
+          <Redirect to="/chat" />
         ) : (
           <Component {...props} />
         )
@@ -24,7 +22,7 @@ const PublickRoute = ({
   );
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   isAuthUser: state.auth.token,
 });
 

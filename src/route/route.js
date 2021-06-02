@@ -1,28 +1,28 @@
-import { lazy } from "react";
+import { lazy } from 'react';
 
 export default [
   {
-    path: "/chat",
-    label: "MainChat",
+    path: '/chat',
+    label: 'MainChat',
     exact: true,
-    component: lazy(() => import("../View/MainChat")),
+    component: lazy(() => import('../View/MainChat')),
     private: true,
     restricted: false,
   },
 
   {
-    path: "/",
-    label: "Login",
+    path: '/',
+    label: 'Login',
     exact: true,
-    component: lazy(() => import("../View/EnterLogin")),
+    component: lazy(() => import('../View/EnterLogin')),
     private: false,
     restricted: true,
   },
   {
-    path: "/register",
-    label: "Register",
+    path: '/register',
+    label: 'Register',
     exact: true,
-    component: lazy(() => import("../View/RegisterUser")),
+    component: lazy(() => import('../View/RegisterUser')),
     private: false,
     restricted: true,
   },

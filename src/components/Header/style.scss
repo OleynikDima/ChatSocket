@@ -1,12 +1,18 @@
 .header {
-    &-nav{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    };
-    &__img{};
-    &__list{};
-    &__item{
-        list-style: none;
-    };
+  background: #000;
+
+  background-image: linear-gradient(to left bottom, #0b0c0b, #2e3430, #505e5a, #738c89, #98bdbf);
+  // box-shadow: 0 0 12px 2px #fff ;
+  &-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &__img {
+  }
+  &__list {
+  }
+  &__item {
+    list-style: none;
+  }
 }

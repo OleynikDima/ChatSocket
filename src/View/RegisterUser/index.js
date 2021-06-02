@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 //components
-import FormRegistration from "../../components/FormRegistration";
+import FormRegistration from '../../components/FormRegistration';
 
 const MainChat = () => {
   return (

@@ -1,4 +1,4 @@
-import FormRegistration from "../FormRegistration";
+import FormRegistration from '../FormRegistration';
 
 const ModalWindow = () => {
   return (

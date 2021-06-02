@@ -1,9 +1,9 @@
-import { createReducer } from "@reduxjs/toolkit";
-import { combineReducers } from "redux";
-import actionUser from "../action/user";
+import { createReducer } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
+import actionUser from '../action/user';
 
 const getUserInfo = (state, action) => {
-  return [...state, action.payload];
+  return action.payload;
 };
 
 const userInfo = createReducer(null, {
